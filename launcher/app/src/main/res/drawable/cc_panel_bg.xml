@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Control center sheet, glassmorphism without blur (1 GB TVs): a translucent white body that reads lighter than
+     the dimmed screen behind it, a faint violet-to-teal tint across it, a sheen at the top and a bright rim. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:angle="270" android:startColor="#D9343642" android:endColor="#E6202230" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:angle="315" android:startColor="#2E8B7CF6" android:centerColor="#0AFFFFFF"
+                android:endColor="#2E2DD4BF" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    <item android:bottom="240dp">
+        <shape android:shape="rectangle">
+            <gradient android:angle="270" android:startColor="#2EFFFFFF" android:endColor="#00FFFFFF" />
+            <corners android:topLeftRadius="24dp" android:topRightRadius="24dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="1dp" android:color="#66FFFFFF" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+</layer-list>

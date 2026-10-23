@@ -1,0 +1,19 @@
+# Your own TV's dumps (serial, android_id, device names), screenshots and notes stay local
+backup/
+shots/
+work/
+# The Python venv for tools/ and the ADB key it creates
+tools/venv/
+tools/adbkey/
+__pycache__/
+# Build output
+launcher/.gradle/
+launcher/build/
+launcher/app/build/
+launcher/local.properties
+launcher/hs_err_pid*.log
+launcher/replay_pid*.log
+release/
+*.apk
+*.aab
+.DS_Store

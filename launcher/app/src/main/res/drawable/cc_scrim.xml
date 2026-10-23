@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dims everything behind the control center, more towards its side, so the glass stays readable and looks frosted
+     against what is behind it. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient android:angle="0" android:startColor="#66000000" android:endColor="#BF000000" />
+</shape>

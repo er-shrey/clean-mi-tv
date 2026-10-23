@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The control center: a compact liquid-glass sheet on the right, over Home or a playing app (see
+     QuickSettingsActivity). Toggles fill white when on, like a phone's; the volume slider steps with Left and Right.
+     No blur, no animation loop. Brightness (the backlight) and contrast show only where the TV's own picture service
+     answers (config.xml mitv_picture; see MiTvPicture). -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrim"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cc_scrim">
+
+    <LinearLayout
+        android:id="@+id/panel"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="28dp"
+        android:orientation="vertical"
+        android:background="@drawable/cc_panel_bg"
+        android:padding="12dp"
+        android:elevation="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
+
+            <TextClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format12Hour="h:mm"
+                android:format24Hour="HH:mm"
+                android:textColor="#FFFFFFFF"
+                android:textSize="24sp"
+                android:fontFamily="@string/font_light"
+                android:includeFontPadding="false" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextClock
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:format12Hour="EEEE d MMMM"
+                    android:format24Hour="EEEE d MMMM"
+                    android:textColor="#D9FFFFFF"
+                    android:textSize="11sp"
+                    android:fontFamily="@string/font_medium" />
+
+                <TextView
+                    android:id="@+id/ccStats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#8CFFFFFF"
+                    android:textSize="10sp"
+                    android:fontFamily="@string/font_regular"
+                    android:singleLine="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:divider="@drawable/cc_gap"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:id="@+id/ccWifi"
+                style="@style/CcTile"
+                android:layout_weight="2">
+
+                <ImageView
+                    style="@style/CcIcon"
+                    android:src="@drawable/ic_wifi" />
+
+                <TextView
+                    style="@style/CcName"
+                    android:text="@string/cc_wifi" />
+                <TextView
+                    android:id="@+id/ccWifiStatus"
+                    style="@style/CcStatus" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ccAirplane"
+                style="@style/CcTile">
+
+                <ImageView
+                    style="@style/CcIcon"
+                    android:src="@drawable/ic_airplane" />
+
+                <TextView
+                    style="@style/CcName"
+                    android:text="@string/cc_airplane" />
+                <TextView
+                    android:id="@+id/ccAirplaneStatus"
+                    style="@style/CcStatus" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ccMute"
+                style="@style/CcTile">
+
+                <ImageView
+                    style="@style/CcIcon"
+                    android:src="@drawable/ic_mute" />
+
+                <TextView
+                    style="@style/CcName"
+                    android:text="@string/cc_mute" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.gathin.tvhome.GlassSlider
+            android:id="@+id/ccBrightness"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <com.gathin.tvhome.GlassSlider
+            android:id="@+id/ccContrast"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <com.gathin.tvhome.GlassSlider
+            android:id="@+id/ccVolume"
+            android:nextFocusDown="@+id/ccMarquee"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:divider="@drawable/cc_gap"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:id="@+id/ccMarquee"
+                style="@style/CcTile">
+
+                <ImageView
+                    style="@style/CcIcon"
+                    android:src="@drawable/ic_marquee" />
+
+                <TextView
+                    style="@style/CcName"
+                    android:text="@string/cc_marquee" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ccClock"
+                style="@style/CcTile">
+
+                <ImageView
+                    style="@style/CcIcon"
+                    android:src="@drawable/ic_clock" />
+
+                <TextView
+                    style="@style/CcName"
+                    android:text="@string/cc_clock" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ccApps"
+                style="@style/CcTile">
+
+                <ImageView
+                    style="@style/CcIcon"
+                    android:src="@drawable/ic_apps" />
+
+                <TextView
+                    style="@style/CcName"
+                    android:text="@string/quick_apps" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:divider="@drawable/cc_gap"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:id="@+id/ccTvSettings"
+                style="@style/CcTile">
+
+                <ImageView
+                    style="@style/CcIcon"
+                    android:src="@drawable/ic_settings" />
+
+                <TextView
+                    style="@style/CcName"
+                    android:text="@string/settings" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ccLauncher"
+                style="@style/CcTile"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <ImageView
+                    style="@style/CcIcon"
+                    android:src="@drawable/ic_launcher_settings" />
+
+                <TextView
+                    style="@style/CcName"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/launcher_settings" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

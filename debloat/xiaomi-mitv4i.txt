@@ -1,0 +1,45 @@
+# Xiaomi Mi TV 4A (MiTV4I, codename magnolia, Amlogic), Android TV 9 (SDK 28), firmware PI.3698, India
+# Tested on one set from 2026-10-22: rebooted after applying, nothing came back enabled.
+#
+# Apply:   TV_HOST=<tv ip> tools/disable.sh debloat/xiaomi-mitv4i.txt
+# Undo:    TV_HOST=<tv ip> scripts/restore-tv.sh
+# Everything is DISABLED for user 0, never uninstalled. Comment out any line you want to keep.
+#
+# Stock launcher: com.google.android.tvlauncher (scripts/build-and-install.sh disables it once the new Home works).
+# Live TV and HDMI: com.android.tv with com.droidlogic.tvinput; both stay.
+# Kept on purpose: mitv.service (TV service, picture settings), com.mitv.tvlock (parental lock),
+# com.xiaomi.android.tvsetup.partnercustomizer (remote keys), com.droidlogic.* (Amlogic HDMI, tuner and picture),
+# Play Store and Play Services, Gboard, Chromecast (com.google.android.apps.mediashell), the Android TV Remote service.
+# Bluetooth: the package stays even on a set without a Bluetooth remote; disabling it can crash system services.
+#
+# The firmware updater is listed below: comment it out to keep OTA updates, or re-enable it before updating.
+# Streaming apps are a matter of taste: these sets come with Hotstar, SonyLIV and MX Player installed as user apps;
+# remove them in Settings > Apps if you don't use them (they are not in this list).
+
+# Xiaomi and Google telemetry
+com.miui.tv.analytics
+com.xiaomi.statistic
+com.google.android.feedback
+com.google.android.tv.bugreportsender
+
+# PatchWall, its content feeds and the promo auto-installers
+com.mitv.tvhome.atv                    # PatchWall
+co.sensara.tv.mitv                     # Sensara content/EPG feed behind PatchWall
+co.sensara.tv.mitv.res
+com.xm.webcontent                      # Xiaomi web promo pages
+android.autoinstalls.config.xiaomi.amelie
+android.autoinstalls.config.xioami.dangal
+
+# Xiaomi background services
+com.xiaomi.mitv.tvmanager              # "TV Manager" cleaner
+com.mitv.milinkservice                 # Mi screen cast / Miracast (Chromecast keeps working)
+com.xiaomi.mitv.updateservice          # firmware updater: re-enable to check for updates
+
+# Preloaded apps
+com.xiaomi.mimusic2
+com.mitv.gallery                       # Mi gallery with cloud sync
+com.google.android.play.games
+
+# Voice assistant (these sets ship an IR remote without a mic)
+com.google.android.katniss             # Google Assistant / voice search
+com.google.android.speech.pumpkin      # offline voice hotword

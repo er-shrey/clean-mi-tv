@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher settings, in the control center's glass: a title on the left, and on the right four cards of sliders
+     (Left/Right), rows with their value and a chevron, and switches. Behaviour is in LauncherSettingsActivity. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/ls_background">
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="64dp"
+        android:paddingTop="56dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_launcher_settings"
+            android:alpha="0.9"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/launcher_settings"
+            android:textColor="#FFFFFFFF"
+            android:textSize="30sp"
+            android:fontFamily="@string/font_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/ls_subtitle"
+            android:textColor="#99FFFFFF"
+            android:textSize="13sp"
+            android:fontFamily="@string/font_regular"
+            android:lineSpacingExtra="3dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        android:paddingTop="44dp"
+        android:paddingBottom="44dp"
+        android:paddingEnd="64dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/reorderChoice"
+                style="@style/LsRow"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/reorder" />
+
+                <TextView
+                    style="@style/LsChevron" />
+            </LinearLayout>
+
+        <TextView
+            style="@style/LsSection"
+            android:layout_marginTop="0dp"
+            android:text="@string/ls_layout" />
+
+        <LinearLayout
+            style="@style/LsCard">
+
+            <com.gathin.tvhome.GlassSlider
+                android:id="@+id/columnsSlider"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="0dp" />
+
+            <com.gathin.tvhome.GlassSlider
+                android:id="@+id/rowsSlider"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp" />
+
+            <com.gathin.tvhome.GlassSlider
+                android:id="@+id/dockSlider"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/LsSection"
+            android:layout_marginTop="22dp"
+            android:text="@string/ls_personal" />
+
+        <LinearLayout
+            style="@style/LsCard">
+
+            <LinearLayout
+                android:id="@+id/ownerChoice"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/owner_name_label" />
+
+                <TextView
+                    android:id="@+id/ownerChoiceValue"
+                    style="@style/LsValue" />
+                <TextView
+                    style="@style/LsChevron" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/wallpaperChoice"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/wallpaper_label" />
+
+                <TextView
+                    android:id="@+id/wallpaperChoiceValue"
+                    style="@style/LsValue" />
+                <TextView
+                    style="@style/LsChevron" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/marqueeToggle"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/cc_marquee" />
+
+                <View style="@style/LsSwitch" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/marqueeChoice"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/marquee_label" />
+
+                <TextView
+                    android:id="@+id/marqueeChoiceValue"
+                    style="@style/LsValue" />
+                <TextView
+                    style="@style/LsChevron" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/LsSection"
+            android:layout_marginTop="22dp"
+            android:text="@string/ls_motion" />
+
+        <LinearLayout
+            style="@style/LsCard">
+
+            <LinearLayout
+                android:id="@+id/animationsChoice"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/ls_animations" />
+
+                <View style="@style/LsSwitch" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/advancedChoice"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/advanced_effects" />
+
+                <View style="@style/LsSwitch" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/LsHint"
+                android:text="@string/advanced_effects_warning" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/LsSection"
+            android:layout_marginTop="22dp"
+            android:text="@string/ls_system" />
+
+        <LinearLayout
+            style="@style/LsCard">
+
+            <LinearLayout
+                android:id="@+id/followThemeChoice"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/ls_follow_theme" />
+
+                <TextView
+                    android:id="@+id/followThemeChoiceValue"
+                    style="@style/LsValue" />
+                <TextView
+                    style="@style/LsChevron" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/LsHint"
+                android:text="@string/follow_theme_hint" />
+
+            <LinearLayout
+                android:id="@+id/defaultHomeChoice"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/home_settings" />
+
+                <TextView
+                    style="@style/LsChevron" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tvSettingsChoice"
+                style="@style/LsRow">
+
+                <TextView
+                    style="@style/LsTitle"
+                    android:text="@string/tv_settings" />
+
+                <TextView
+                    style="@style/LsChevron" />
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
